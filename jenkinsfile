@@ -5,10 +5,13 @@ node{
  stage('Install node modules'){
      sh "npm  install"
  }
+ stage ('Test'){
+     sh 'npm run test-headless'
+ }
  stage('Bulid'){
      sh "npm run build --prod "
  }
  stage('Copy'){
-     sh "pm2 restart all"
+     sh "cp -a /var/lib/jenkins/workspace/angular-pipeline/dist/jenkinsproject/ . /var/www/jenkinsproject/html/"
  }
 }
