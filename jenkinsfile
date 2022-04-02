@@ -6,9 +6,9 @@ node{
      sh "npm  install"
  }
  stage('Bulid'){
-     sh "npm run build:ssr"
+     sh "npm run build --prod "
  }
- stage('Deploy'){
+ stage('Copy'){
      sh "pm2 restart all"
  }
 }
